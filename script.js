@@ -38,19 +38,33 @@ console.log(average); // 7.66666666666666667
 // console.log(average); // 6
 
 // Take an array of strings and return the longest string
-let strings = ["Hello", "JavaScript", "is", "difficult", ":("];
-
-function longestStrArray() {
-  let arraySplit = strings.split("");
-  let longestWord = 0;
-  for (let i = 0; i < strings.Split.length; i++) {
-    if (arraySplit[i].length > longestWord) {
-      longestWord = arraySplit[i].length;
+// let strings = ["Hello", "JavaScript", "is", "difficult", ":("];
+function longestStrings(array) {
+  let maxLength = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length > maxLength) {
+      maxLength = array[i].length;
     }
   }
-  return longestWord;
+  const longestStrs = array.filter((str) => str.length === maxLength);
+
+  return longestStrs;
 }
-console.log(longestStrArray(strings)); // JavaScript
+const strings = ["Hello", "JavaScript", "is", "difficult", ":("];
+const longest = longestStrings(strings);
+console.log(longest); // JavaScript
+
+// function longestStrArray(strings) {
+//   let arraySplit = strings.split("");
+//   let longestWord = 0;
+//   for (let i = 0; i < strings.Split.length; i++) {
+//     if (arraySplit[i].length > longestWord) {
+//       longestWord = arraySplit[i].length;
+//     }
+//   }
+//   return longestWord;
+// }
+// console.log(longestStrArray(strings)); // should return JavaScript, but isn't
 
 // function longestStrArray(arr) {
 //   let longest = "";
@@ -88,5 +102,33 @@ console.log(longestStrArray(strings)); // JavaScript
 //   return answer;
 // }
 
+// Take an array of strings, and a number and return an array of the strings that are longer than the given number
+function wordsLongerArray(string, k) {
+  let words = string.plit(" ");
+  let count = 0;
+  for (let word of words) {
+    if (word.length > k) {
+      console.log(word);
+      count++;
+    }
+    if (count === 0) {
+      console.log("No word is greater than length ${k");
+    }
+  }
+  return count;
+}
+
+let string = [
+  "I",
+  "hate",
+  "JavaScript",
+  "and",
+  "really",
+  "don't",
+  "understand",
+];
+let k = 4;
+console.log(wordsLongerArray);
+
 console.log("==================================");
-// Part 1: Thinking Functionally
+// Part 2: Thinking Methodically
