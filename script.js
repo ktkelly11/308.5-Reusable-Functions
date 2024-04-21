@@ -103,22 +103,7 @@ console.log(longest); // JavaScript
 // }
 
 // Take an array of strings, and a number and return an array of the strings that are longer than the given number
-function wordsLongerArray(string, k) {
-  let words = string.plit(" ");
-  let count = 0;
-  for (let word of words) {
-    if (word.length > k) {
-      console.log(word);
-      count++;
-    }
-    if (count === 0) {
-      console.log("No word is greater than length ${k");
-    }
-  }
-  return count;
-}
-
-let string = [
+const words = [
   "I",
   "hate",
   "JavaScript",
@@ -127,8 +112,84 @@ let string = [
   "don't",
   "understand",
 ];
-let k = 4;
-console.log(wordsLongerArray);
+
+function wordsLongerArray(words, minLength) {
+  return words.filter((word) => word.length > minLength);
+}
+
+const longWords = wordsLongerArray(words, 3);
+console.log(longWords); // ["hate","JavaScript", "really", "don't", "understand"]
+
+// function wordsLongerArray(string, k) {
+//   let words = string.plit(" ");
+//   let count = 0;
+//   for (let word of words) {
+//     if (word.length > k) {
+//       console.log(word);
+//       count++;
+//     }
+//     if (count === 0) {
+//       console.log("No word is greater than length ${k");
+//     }
+
+//     return count;
+//   }
+// }
+
+// Take a number, n, and print every number between 1 and n without using loops. Use recursion.
+function printNum(n) {
+  if (n > 0) {
+    printNum(n - 1);
+    console.log(n + " ");
+  }
+  return;
+}
+
+let n = 11;
+console.log(printNum(n - 1));
 
 console.log("==================================");
 // Part 2: Thinking Methodically
+const newArray = [
+  { id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+  { id: "48", name: "Barry", occupation: "Runner", age: "25" },
+  { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+  { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+  { id: "7", name: "Bilbo", occupation: "None", age: "111" },
+];
+
+// Sort the array by age
+function sortByAge(arr) {
+  return newArray.sort((a, b) => parseInt(a.age) - parseInt(b.age));
+}
+
+console.log(sortByAge([...newArray])); // ordered the ages as: 19, 25, 41, 58, 111
+
+// function groupBy(arr, callback) {
+//   let result = {};
+
+//   arr.forEach((obj) => {
+//     let key = callback(obj);
+
+//     if (!result.hasOwnProperty(key)) {
+//       result[key] = [];
+//     }
+
+//     result[key].push(obj);
+//   });
+
+//   return result;
+// }
+
+// console.log(
+//   groupBy(newArray, function (obj) {
+//     return obj.age;
+//   })
+// );
+
+// Filter the array to remove entries with an age greater than 50
+let underFifty = newArray.filter((person) => person.age <= 50);
+
+console.log(underFifty); // returned Bob (19), Barry (25), and Bruce(41)
+
+// Map the array to change the “occupation” key to “job” and increment every age by 1
