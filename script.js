@@ -188,8 +188,28 @@ console.log(sortByAge([...newArray])); // ordered the ages as: 19, 25, 41, 58, 1
 // );
 
 // Filter the array to remove entries with an age greater than 50
-let underFifty = newArray.filter((person) => person.age <= 50);
+let newerArray = newArray.filter((person) => person.age <= 50);
 
-console.log(underFifty); // returned Bob (19), Barry (25), and Bruce(41)
+console.log(newerArray); // returned Bob (19), Barry (25), and Bruce(41)
 
 // Map the array to change the “occupation” key to “job” and increment every age by 1
+
+// function rename() {
+//   newestArray = newerArray.map(function (obj) {
+//     obj["occupation"] = obj["job"];
+
+//     delete obj["Burma"];
+
+//     return obj;
+//   });
+//   console.log(newestArray);
+// }
+
+// rename();
+
+// const newestArray = newerArray.map(({ occupation: job, ...rest }) => ({
+//   job,
+//   ...rest,
+// }));
+
+// console.log(newerArray);
